@@ -1,6 +1,7 @@
 # nearby
 
-Search places near by a specified address 
+Search places near by a specified address using [Google Maps API](https://developers.google.com/maps/documentation/javascript/)
+
 
 ## Image
 
