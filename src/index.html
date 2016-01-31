@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nearby</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="bundle.css">
+  </head>
+  <body>
+    <div class="row">
+      <div id="map" class="seven columns"></div>
+      <div id="control" class="five columns">
+        <div id="query">
+          <form action="#">
+            <h5>Address Query</h5>
+            <div class="row">
+              <div class="six columns">
+                <label for="addressQuery">Address</label>
+                <input class="u-full-width" type="text" id="addressQuery" value="東京都渋谷区渋谷２‐２‐５">
+              </div>
+              <div class="six columns">
+                <label for="radiusQuery">Radius</label>
+                <input class="u-full-width" type="text" id="radiusQuery" value="500">
+              </div>
+            </div>
+            <div>
+              <button id="searchBtn">
+                Search
+              </button>
+            </div>
+            <h5>L Location Filter</h5>
+            <div>
+              <input type="checkbox" id="accounting" class="filter-checkbox">
+              <span class="label-body">会計事務所</span>
+              <input type="checkbox" id="airport" class="filter-checkbox">
+              <span class="label-body">空港</span>
+              <input type="checkbox" id="amusement_park" class="filter-checkbox">
+              <span class="label-body">遊園地</span>
+              <input type="checkbox" id="aquarium" class="filter-checkbox">
+              <span class="label-body">水族館</span>
+              <input type="checkbox" id="art_gallery" class="filter-checkbox">
+              <span class="label-body">アート</span>
+              <input type="checkbox" id="atm" class="filter-checkbox">
+              <span class="label-body">ATM</span>
+              <input type="checkbox" id="bakery" class="filter-checkbox">
+              <span class="label-body">ベーカリー、パン屋</span>
+              <input type="checkbox" id="bank" class="filter-checkbox">
+              <span class="label-body">銀行</span>
+              <input type="checkbox" id="bar" class="filter-checkbox">
+              <span class="label-body">バー、居酒屋</span>
+              <input type="checkbox" id="beauty_salon" class="filter-checkbox">
+              <span class="label-body">ビューティー</span>
+              <input type="checkbox" id="bicycle_store" class="filter-checkbox">
+              <span class="label-body">自転車店</span>
+              <input type="checkbox" id="book_store" class="filter-checkbox">
+              <span class="label-body">書店</span>
+              <input type="checkbox" id="bowling_alley" class="filter-checkbox">
+              <span class="label-body">ボーリング場</span>
+              <input type="checkbox" id="bus_station" class="filter-checkbox">
+              <span class="label-body">バス停</span>
+              <input type="checkbox" id="cafe" class="filter-checkbox">
+              <span class="label-body">カフェ</span>
+              <input type="checkbox" id="campground" class="filter-checkbox">
+              <span class="label-body">キャンプ場</span>
+              <input type="checkbox" id="car_dealer" class="filter-checkbox">
+              <span class="label-body">カーディーラー</span>
+              <input type="checkbox" id="car_rental" class="filter-checkbox">
+              <span class="label-body">レンタカー</span>
+              <input type="checkbox" id="car_repair" class="filter-checkbox">
+              <span class="label-body">車の修理</span>
+              <input type="checkbox" id="car_wash" class="filter-checkbox">
+              <span class="label-body">洗車場</span>
+              <input type="checkbox" id="casino" class="filter-checkbox">
+              <span class="label-body">カジノ</span>
+              <input type="checkbox" id="cemetery" class="filter-checkbox">
+              <span class="label-body">墓地</span>
+              <input type="checkbox" id="church" class="filter-checkbox">
+              <span class="label-body">教会</span>
+              <input type="checkbox" id="city_hall" class="filter-checkbox">
+              <span class="label-body">市役所</span>
+              <input type="checkbox" id="clothing_store" class="filter-checkbox">
+              <span class="label-body">衣料品店</span>
+              <input type="checkbox" id="convenience_store" class="filter-checkbox">
+              <span class="label-body">コンビニエンス</span>
+              <input type="checkbox" id="courthouse" class="filter-checkbox">
+              <span class="label-body">裁判所</span>
+              <input type="checkbox" id="dentist" class="filter-checkbox">
+              <span class="label-body">歯科医</span>
+              <input type="checkbox" id="department_store" class="filter-checkbox">
+              <span class="label-body">百貨店</span>
+              <input type="checkbox" id="doctor" class="filter-checkbox">
+              <span class="label-body">医者</span>
+              <input type="checkbox" id="electrician" class="filter-checkbox">
+              <span class="label-body">電気工</span>
+              <input type="checkbox" id="electronics_store" class="filter-checkbox">
+              <span class="label-body">電器店</span>
+              <input type="checkbox" id="embassy" class="filter-checkbox">
+              <span class="label-body">大使館</span>
+              <input type="checkbox" id="establishment" class="filter-checkbox">
+              <span class="label-body">施設</span>
+              <input type="checkbox" id="finance" class="filter-checkbox">
+              <span class="label-body">金融業</span>
+              <input type="checkbox" id="fire_station" class="filter-checkbox">
+              <span class="label-body">消防署</span>
+              <input type="checkbox" id="florist" class="filter-checkbox">
+              <span class="label-body">花屋</span>
+              <input type="checkbox" id="food" class="filter-checkbox">
+              <span class="label-body">食料品店</span>
+              <input type="checkbox" id="funeral_home" class="filter-checkbox">
+              <span class="label-body">葬儀場</span>
+              <input type="checkbox" id="furniture_store" class="filter-checkbox">
+              <span class="label-body">家具店</span>
+              <input type="checkbox" id="gas_station" class="filter-checkbox">
+              <span class="label-body">ガソリンスタンド</span>
+              <input type="checkbox" id="general_contractor" class="filter-checkbox">
+              <span class="label-body">建設会社</span>
+              <input type="checkbox" id="grocery_or_supermarket" class="filter-checkbox">
+              <span class="label-body">スーパーマーケット</span>
+              <input type="checkbox" id="gym" class="filter-checkbox">
+              <span class="label-body">スポーツクラブ</span>
+              <input type="checkbox" id="hair_care" class="filter-checkbox">
+              <span class="label-body">ヘアケア</span>
+              <input type="checkbox" id="hardware_store" class="filter-checkbox">
+              <span class="label-body">金物店</span>
+              <input type="checkbox" id="health" class="filter-checkbox">
+              <span class="label-body">健康</span>
+              <input type="checkbox" id="hindu_temple" class="filter-checkbox">
+              <span class="label-body">ヒンドゥー寺院</span>
+              <input type="checkbox" id="home_goods_store" class="filter-checkbox">
+              <span class="label-body">インテリア</span>
+              <input type="checkbox" id="hospital" class="filter-checkbox">
+              <span class="label-body">病院</span>
+              <input type="checkbox" id="insurance_agency" class="filter-checkbox">
+              <span class="label-body">保険代理店</span>
+              <input type="checkbox" id="jewelry_store" class="filter-checkbox">
+              <span class="label-body">宝飾店</span>
+              <input type="checkbox" id="laundry" class="filter-checkbox">
+              <span class="label-body">クリーニング店</span>
+              <input type="checkbox" id="lawyer" class="filter-checkbox">
+              <span class="label-body">弁護士</span>
+              <input type="checkbox" id="library" class="filter-checkbox">
+              <span class="label-body">図書館</span>
+              <input type="checkbox" id="liquor_store" class="filter-checkbox">
+              <span class="label-body">酒店</span>
+              <input type="checkbox" id="local_government_office" class="filter-checkbox">
+              <span class="label-body">役場</span>
+              <input type="checkbox" id="locksmith" class="filter-checkbox">
+              <span class="label-body">鍵屋</span>
+              <input type="checkbox" id="lodging" class="filter-checkbox">
+              <span class="label-body">宿泊施設</span>
+              <input type="checkbox" id="meal_delivery" class="filter-checkbox">
+              <span class="label-body">出前</span>
+              <input type="checkbox" id="meal_takeaway" class="filter-checkbox">
+              <span class="label-body">テイクアウト</span>
+              <input type="checkbox" id="mosque" class="filter-checkbox">
+              <span class="label-body">モスク</span>
+              <input type="checkbox" id="movie_rental" class="filter-checkbox">
+              <span class="label-body">DVD</span>
+              <input type="checkbox" id="movie_theater" class="filter-checkbox">
+              <span class="label-body">映画館</span>
+              <input type="checkbox" id="moving_compy" class="filter-checkbox">
+              <span class="label-body">引越し会社</span>
+              <input type="checkbox" id="museum" class="filter-checkbox">
+              <span class="label-body">美術館、博物館</span>
+              <input type="checkbox" id="night_club" class="filter-checkbox">
+              <span class="label-body">ナイトクラブ</span>
+              <input type="checkbox" id="painter" class="filter-checkbox">
+              <span class="label-body">塗装業</span>
+              <input type="checkbox" id="park" class="filter-checkbox">
+              <span class="label-body">公園</span>
+              <input type="checkbox" id="parking" class="filter-checkbox">
+              <span class="label-body">駐車場</span>
+              <input type="checkbox" id="pet_store" class="filter-checkbox">
+              <span class="label-body">ペットショップ</span>
+              <input type="checkbox" id="pharmacy" class="filter-checkbox">
+              <span class="label-body">薬局</span>
+              <input type="checkbox" id="physiotherapist" class="filter-checkbox">
+              <span class="label-body">理学療法士</span>
+              <input type="checkbox" id="place_of_worship" class="filter-checkbox">
+              <span class="label-body">礼拝所</span>
+              <input type="checkbox" id="plumber" class="filter-checkbox">
+              <span class="label-body">配管工</span>
+              <input type="checkbox" id="police" class="filter-checkbox">
+              <span class="label-body">警察</span>
+              <input type="checkbox" id="post_office" class="filter-checkbox">
+              <span class="label-body">郵便局</span>
+              <input type="checkbox" id="real_estate_agency" class="filter-checkbox">
+              <span class="label-body">不動産業</span>
+              <input type="checkbox" id="restaurant" class="filter-checkbox">
+              <span class="label-body">レストラン</span>
+              <input type="checkbox" id="roofing_contractor" class="filter-checkbox">
+              <span class="label-body">防水工事業</span>
+              <input type="checkbox" id="rv_park" class="filter-checkbox">
+              <span class="label-body">オートキャンプ場</span>
+              <input type="checkbox" id="school" class="filter-checkbox">
+              <span class="label-body">学校</span>
+              <input type="checkbox" id="shoe_store" class="filter-checkbox">
+              <span class="label-body">靴屋</span>
+              <input type="checkbox" id="shopping_mall" class="filter-checkbox">
+              <span class="label-body">ショッピング</span>
+              <input type="checkbox" id="spa" class="filter-checkbox">
+              <span class="label-body">温泉、スパ</span>
+              <input type="checkbox" id="stadium" class="filter-checkbox">
+              <span class="label-body">スタジアム</span>
+              <input type="checkbox" id="storage" class="filter-checkbox">
+              <span class="label-body">倉庫</span>
+              <input type="checkbox" id="store" class="filter-checkbox">
+              <span class="label-body">小売店</span>
+              <input type="checkbox" id="subway_station" class="filter-checkbox">
+              <span class="label-body">地下鉄駅</span>
+              <input type="checkbox" id="synagogue" class="filter-checkbox">
+              <span class="label-body">シナゴーグ</span>
+              <input type="checkbox" id="taxi_stand" class="filter-checkbox">
+              <span class="label-body">タクシー乗り場</span>
+              <input type="checkbox" id="train_station" class="filter-checkbox">
+              <span class="label-body">駅</span>
+              <input type="checkbox" id="travel_agency" class="filter-checkbox">
+              <span class="label-body">旅行代理店</span>
+              <input type="checkbox" id="university" class="filter-checkbox">
+              <span class="label-body">大学</span>
+              <input type="checkbox" id="veterinary_care" class="filter-checkbox">
+              <span class="label-body">獣医</span>
+              <input type="checkbox" id="zoo" class="filter-checkbox">
+              <span class="label-body">動物園</span>
+            </div>
+          </form>
+        </div>
+        <h5>Search Results</h5>
+        <div id="result">
+          <ul id="resultList">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="bundle.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAP_API_KEY}}&signed_in=true&libraries=places&callback=initMap" async defer></script>
+  </body>
+</html>

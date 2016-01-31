@@ -1,0 +1,37 @@
+{
+  "name": "nearby",
+  "version": "1.0.0",
+  "description": "Search places near by a specified address",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-libcss": "cp node_modules/skeleton-css/css/*.css dist",
+    "build-css": "cat src/*.css > dist/bundle.css ",
+    "build-html": "sed \"s/{{GOOGLE_MAP_API_KEY}}/${GOOGLE_MAP_API_KEY}/\" src/index.html > dist/index.html",
+    "build-js": "cp src/app.js dist/bundle.js",
+    "build-libjs": "cp node_modules/jquery/dist/jquery.min.js dist/jquery.min.js",
+    "build": "npm run build-css && npm run build-html && npm run build-js && npm run build-libcss && npm run build-libjs",
+    "watch-js": "catw 'src/app.js' -o 'dist/bundle.js' -v",
+    "watch-css": "catw 'src/*.css' -o 'dist/bundle.css' -v",
+    "watch-html": "catw 'src/index.html' -o 'dist/index.html' -c 'sed \"s/{{GOOGLE_MAP_API_KEY}}/${GOOGLE_MAP_API_KEY}/\"' -v",
+    "watch": "npm run watch-js & npm run watch-css & npm run watch-html & npm run build-libcss & npm run build-libjs",
+    "clean": "rm dist/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achiku/nearby.git"
+  },
+  "author": "achiku",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/achiku/nearby/issues"
+  },
+  "homepage": "https://github.com/achiku/nearby#readme",
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "skeleton-css": "^2.0.4"
+  },
+  "devDependencies": {
+    "catw": "^1.0.1"
+  }
+}
